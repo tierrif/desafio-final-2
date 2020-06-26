@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">DesafioFinal2</string>
+    <string name="welcome">Bem-vindo</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+</resources>

@@ -1,0 +1,35 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Usado em layouts da aplicação. -->
+    <style name="ActivityTheme" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorBackground</item>
+    </style>
+
+    <!-- Título de atividades principais. -->
+    <style name="MainTitle" parent="AppTheme">
+        <item name="android:textSize">@dimen/mainTitleSize</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/mainTitleMargin</item>
+    </style>
+
+    <style name="InputText" parent="AppTheme">
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/defaultMargin</item>
+    </style>
+
+    <dimen name="mediumTextSize">20sp</dimen>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mainTitleSize">50sp</dimen>
+    <dimen name="mainTitleMargin">150dp</dimen>
+    <dimen name="defaultMargin">5dp</dimen>
+</resources>

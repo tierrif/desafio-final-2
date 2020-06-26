@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ActivityTheme">
+
+    <TextView
+        android:id="@+id/welcome"
+        style="@style/MainTitle"
+        android:text="@string/welcome" />
+
+    <EditText
+        android:id="@+id/username"
+        style="@style/InputText"
+        android:hint="@string/username"
+        android:inputType="text"
+        android:layout_below="@+id/welcome" />
+
+    <EditText
+        style="@style/InputText"
+        android:id="@+id/password"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:layout_below="@+id/username" />
+
+    <!-- TODO: style -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:textColor="@color/colorBackground"
+        android:background="@color/textColor"
+        android:layout_margin="@dimen/defaultMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
