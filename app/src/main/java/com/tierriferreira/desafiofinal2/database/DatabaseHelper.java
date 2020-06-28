@@ -30,13 +30,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     FeedReaderContract.FeedEntry.COLUMN_TIPOLOGIA + " TEXT," +
                     FeedReaderContract.FeedEntry.COLUMN_LOCALIZACAO + " TEXT," +
                     FeedReaderContract.FeedEntry.COLUMN_URL_FOTO + " TEXT," +
+                    FeedReaderContract.FeedEntry.COLUMN_ID_CLIENTE + " INTEGER," +
+                    FeedReaderContract.FeedEntry.COLUMN_ID_CARACTERISTICAS + " INTEGER" +
+                    ")";
+
+    public static final String SQL_CREATE_ENTRIES_IMOVEL_CARACTERISTICAS =
+            "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_IMOVEL_CARACTERISTICAS + " (" +
+                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY," +
                     FeedReaderContract.FeedEntry.COLUMN_SAUNA + " INTEGER(1)," +
-                    FeedReaderContract.FeedEntry.COLUMN_AREA_COMUM + " INTEGER(1)," +
-                    FeedReaderContract.FeedEntry.COLUMN_ID_CLIENTE + " INTEGER" +
+                    FeedReaderContract.FeedEntry.COLUMN_AREA_COMUM + " INTEGER(1)" +
                     ")";
 
     public static final String SQL_CREATE_ENTRIES_AUTH =
             "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_AUTH + " (" +
+                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY," +
                     FeedReaderContract.FeedEntry.COLUMN_USERNAME + " TEXT PRIMARY KEY," +
                     FeedReaderContract.FeedEntry.COLUMN_PASSWORD + " TEXT" +
                     ")";
@@ -46,6 +53,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + FeedReaderContract.FeedEntry.TABLE_CLIENTE;
     public static final String SQL_DELETE_ENTRIES_IMOVEL =
             "DROP TABLE IF EXISTS " + FeedReaderContract.FeedEntry.TABLE_IMOVEL;
+    public static final String SQL_DELETE_ENTRIES_IMOVEL_CARACTERISTICAS =
+            "DROP TABLE IF EXISTS " + FeedReaderContract.FeedEntry.TABLE_IMOVEL_CARACTERISTICAS;
     public static final String SQL_DELETE_ENTRIES_AUTH =
             "DROP TABLE IF EXISTS " + FeedReaderContract.FeedEntry.TABLE_AUTH;
 
@@ -59,6 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Criar as tabelas quando a DB for criada.
         db.execSQL(SQL_CREATE_ENTRIES_CLIENTE);
         db.execSQL(SQL_CREATE_ENTRIES_IMOVEL);
+        db.execSQL(SQL_CREATE_ENTRIES_IMOVEL_CARACTERISTICAS);
         db.execSQL(SQL_CREATE_ENTRIES_AUTH);
     }
 
@@ -70,6 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Eliminar as tabelas primeiro.
         db.execSQL(SQL_DELETE_ENTRIES_CLIENTE);
         db.execSQL(SQL_DELETE_ENTRIES_IMOVEL);
+        db.execSQL(SQL_DELETE_ENTRIES_IMOVEL_CARACTERISTICAS);
         db.execSQL(SQL_DELETE_ENTRIES_AUTH);
         onCreate(db); // Reaproveitar o código e atualizar a BD.
     }

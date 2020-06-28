@@ -10,13 +10,17 @@ public class AuthSingleton {
     }
 
     public boolean login(String username, String password, AuthStorage storage) {
-        AuthCredentials credentials = storage.getCredentialsByUsername(username);
+        AuthCredentials credentials = storage.retrieveByUsername(username);
         if (credentials == null) return false;
         return credentials.getPassword().equals(password);
     }
 
     public boolean changePassword(String username, String newPassword, AuthStorage storage) {
-        return storage.updateCredentialsFor(username, newPassword);
+        AuthCredentials credentials = storage.retrieveByUsername(username);
+        if (credentials == null) return false;
+        credentials.setPassword(newPassword);
+        storage.update(credentials, credentials.getId());
+        return true;
     }
 
     public static AuthSingleton getInstance() {
