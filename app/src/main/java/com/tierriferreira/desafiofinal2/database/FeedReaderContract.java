@@ -29,6 +29,7 @@ public final class FeedReaderContract {
         public static final String COLUMN_AREA_COMUM = "area_comum";
         // Autenticação.
         public static final String TABLE_AUTH = "Auth";
+        public static final String COLUMN_SUPER_ADMIN = "super_admin";
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_PASSWORD = "password";
     }

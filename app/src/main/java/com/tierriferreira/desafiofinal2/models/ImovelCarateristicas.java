@@ -4,6 +4,14 @@ public class ImovelCarateristicas {
     private int id;
     private boolean sauna, areaComum;
 
+    public ImovelCarateristicas() {
+        this(-1, false, false);
+    }
+
+    public ImovelCarateristicas(boolean sauna, boolean areaComum) {
+        this(-1, sauna, areaComum);
+    }
+
     public ImovelCarateristicas(int id) {
         // Valores por defeito, chamando o próprio construtor.
         this(id, false, false);

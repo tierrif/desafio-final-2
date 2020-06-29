@@ -8,6 +8,7 @@ public class MainMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView();
+        if (getIntent().getBooleanExtra("superAdmin", false)) setContentView(R.layout.activity_main_menu_admin);
+        else setContentView(R.layout.activity_main_menu);
     }
 }

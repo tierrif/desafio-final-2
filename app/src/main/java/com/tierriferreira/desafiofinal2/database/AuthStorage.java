@@ -3,6 +3,7 @@ package com.tierriferreira.desafiofinal2.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.tierriferreira.desafiofinal2.models.AuthCredentials;
 
@@ -21,7 +22,7 @@ public class AuthStorage extends Storage<AuthCredentials> {
         // As colunas que vamos pedir na query.
         String[] projection = getCollumns();
         // Cláusula WHERE.
-        String selection = FeedReaderContract.FeedEntry._ID + " = ?";
+        String selection = FeedReaderContract.FeedEntry.COLUMN_USERNAME + " = ?";
         // Argumentos da cláusula WHERE.
         String[] selectionArgs = {username};
         // Agora a query.
@@ -54,7 +55,9 @@ public class AuthStorage extends Storage<AuthCredentials> {
                     FeedReaderContract.FeedEntry.COLUMN_USERNAME));
             String password = cursor.getString(cursor.getColumnIndex(
                     FeedReaderContract.FeedEntry.COLUMN_PASSWORD));
-            items.add(new AuthCredentials(id, username, password)); // Adicionar à lista.
+            boolean superAdmin = cursor.getInt(cursor.getColumnIndex(
+                    FeedReaderContract.FeedEntry.COLUMN_SUPER_ADMIN)) >= 1;
+            items.add(new AuthCredentials(id, username, password, superAdmin)); // Adicionar à lista.
         }
         // Deixar que a classe mãe faça o resto.
         return items;
@@ -65,9 +68,9 @@ public class AuthStorage extends Storage<AuthCredentials> {
         // Instanciar ContentValues.
         ContentValues values = new ContentValues();
         // Adicionar todos os dados que queremos que a base de dados guarde do modelo (todos).
-        values.put(FeedReaderContract.FeedEntry._ID, credentials.getId());
         values.put(FeedReaderContract.FeedEntry.COLUMN_USERNAME, credentials.getUsername());
         values.put(FeedReaderContract.FeedEntry.COLUMN_PASSWORD, credentials.getPassword());
+        values.put(FeedReaderContract.FeedEntry.COLUMN_SUPER_ADMIN, credentials.isSuperAdmin());
         // Deixar que a classe mãe faça o resto.
         return values;
     }
@@ -77,7 +80,8 @@ public class AuthStorage extends Storage<AuthCredentials> {
         return new String[]{
                 FeedReaderContract.FeedEntry._ID,
                 FeedReaderContract.FeedEntry.COLUMN_USERNAME,
-                FeedReaderContract.FeedEntry.COLUMN_PASSWORD
+                FeedReaderContract.FeedEntry.COLUMN_PASSWORD,
+                FeedReaderContract.FeedEntry.COLUMN_SUPER_ADMIN
         };
     }
 

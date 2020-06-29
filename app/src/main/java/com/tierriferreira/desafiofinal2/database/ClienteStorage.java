@@ -37,7 +37,6 @@ public class ClienteStorage extends Storage<Cliente> {
         // Instanciar ContentValues.
         ContentValues values = new ContentValues();
         // Adicionar todos os dados que queremos que a base de dados guarde do modelo (todos).
-        values.put(FeedReaderContract.FeedEntry._ID, cliente.getId());
         values.put(FeedReaderContract.FeedEntry.COLUMN_NOME, cliente.getNome());
         values.put(FeedReaderContract.FeedEntry.COLUMN_IDADE, cliente.getIdade());
         values.put(FeedReaderContract.FeedEntry.COLUMN_URL_FOTO, cliente.getUrlFoto());

@@ -3,16 +3,18 @@ package com.tierriferreira.desafiofinal2.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import com.tierriferreira.desafiofinal2.models.Cliente;
 import com.tierriferreira.desafiofinal2.models.Imovel;
+import com.tierriferreira.desafiofinal2.models.ImovelCarateristicas;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ImovelStorage extends Storage<Imovel> {
-    private ImovelCarateristicasStorage imovelCStorage;
-    private ClienteStorage clienteStorage;
+    private Storage<ImovelCarateristicas> imovelCStorage;
+    private Storage<Cliente> clienteStorage;
 
-    public ImovelStorage(DatabaseHelper helper, ImovelCarateristicasStorage imovelCStorage, ClienteStorage clienteStorage) {
+    public ImovelStorage(DatabaseHelper helper, Storage<ImovelCarateristicas> imovelCStorage, Storage<Cliente> clienteStorage) {
         super(helper);
         this.imovelCStorage = imovelCStorage;
         this.clienteStorage = clienteStorage;
@@ -48,13 +50,14 @@ public class ImovelStorage extends Storage<Imovel> {
         // Instanciar ContentValues.
         ContentValues values = new ContentValues();
         // Adicionar todos os dados que queremos que a base de dados guarde do modelo (todos).
-        values.put(FeedReaderContract.FeedEntry._ID, imovel.getId());
         values.put(FeedReaderContract.FeedEntry.COLUMN_DESCRICAO, imovel.getDescricao());
         values.put(FeedReaderContract.FeedEntry.COLUMN_TIPOLOGIA, imovel.getTipologia());
         values.put(FeedReaderContract.FeedEntry.COLUMN_LOCALIZACAO, imovel.getLocalizacao());
         values.put(FeedReaderContract.FeedEntry.COLUMN_URL_FOTO, imovel.getUrlFoto());
         values.put(FeedReaderContract.FeedEntry.COLUMN_ID_CARACTERISTICAS, imovel.getCaracteristicas().getId());
-        values.put(FeedReaderContract.FeedEntry.COLUMN_ID_CLIENTE, imovel.getCliente().getId());
+        // No caso de o imóvel não ter cliente, usar -1 como ID de cliente não existente.
+        if (imovel.getCliente() != null) values.put(FeedReaderContract.FeedEntry.COLUMN_ID_CLIENTE, imovel.getCliente().getId());
+        else values.put(FeedReaderContract.FeedEntry.COLUMN_ID_CLIENTE, -1);
         // Deixar que a classe mãe faça o resto.
         return values;
     }

@@ -4,6 +4,10 @@ public class Cliente extends Generic {
     private int id, idade;
     private String nome;
 
+    public Cliente(String nome, int idade, String urlFoto) {
+        this(-1, nome, idade, urlFoto);
+    }
+
     public Cliente(int id, String nome, int idade, String urlFoto) {
         super(urlFoto);
         this.id = id;

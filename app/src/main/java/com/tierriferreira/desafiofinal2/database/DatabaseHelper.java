@@ -14,7 +14,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Criação das tabelas.
     public static final String SQL_CREATE_ENTRIES_CLIENTE =
             "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_CLIENTE + " (" +
-                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY," +
+                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     FeedReaderContract.FeedEntry.COLUMN_NOME + " TEXT," +
                     FeedReaderContract.FeedEntry.COLUMN_IDADE + " INTEGER," +
                     FeedReaderContract.FeedEntry.COLUMN_URL_FOTO + " TEXT" +
@@ -25,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        com a relação de muitos. */
     public static final String SQL_CREATE_ENTRIES_IMOVEL =
             "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_IMOVEL + " (" +
-                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY," +
+                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     FeedReaderContract.FeedEntry.COLUMN_DESCRICAO + " TEXT," +
                     FeedReaderContract.FeedEntry.COLUMN_TIPOLOGIA + " TEXT," +
                     FeedReaderContract.FeedEntry.COLUMN_LOCALIZACAO + " TEXT," +
@@ -36,15 +36,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String SQL_CREATE_ENTRIES_IMOVEL_CARACTERISTICAS =
             "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_IMOVEL_CARACTERISTICAS + " (" +
-                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY," +
+                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     FeedReaderContract.FeedEntry.COLUMN_SAUNA + " INTEGER(1)," +
                     FeedReaderContract.FeedEntry.COLUMN_AREA_COMUM + " INTEGER(1)" +
                     ")";
 
     public static final String SQL_CREATE_ENTRIES_AUTH =
             "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_AUTH + " (" +
-                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY," +
-                    FeedReaderContract.FeedEntry.COLUMN_USERNAME + " TEXT PRIMARY KEY," +
+                    FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    FeedReaderContract.FeedEntry.COLUMN_SUPER_ADMIN + " INTEGER(1)," +
+                    FeedReaderContract.FeedEntry.COLUMN_USERNAME + " TEXT," +
                     FeedReaderContract.FeedEntry.COLUMN_PASSWORD + " TEXT" +
                     ")";
 

@@ -3,11 +3,18 @@ package com.tierriferreira.desafiofinal2.models;
 public class AuthCredentials {
     private int id;
     private String username, password;
+    // Super admin permite manusear utilizadores.
+    private boolean superAdmin;
 
-    public AuthCredentials(int id, String username, String password) {
+    public AuthCredentials(String username, String password, boolean superAdmin) {
+        this(-1, username, password, superAdmin);
+    }
+
+    public AuthCredentials(int id, String username, String password, boolean superAdmin) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.superAdmin = superAdmin;
     }
 
     public int getId() {
@@ -32,5 +39,13 @@ public class AuthCredentials {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isSuperAdmin() {
+        return superAdmin;
+    }
+
+    public void setSuperAdmin(boolean superAdmin) {
+        this.superAdmin = superAdmin;
     }
 }

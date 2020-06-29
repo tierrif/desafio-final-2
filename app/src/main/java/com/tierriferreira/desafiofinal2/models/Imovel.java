@@ -6,6 +6,15 @@ public class Imovel extends Generic {
     private ImovelCarateristicas caracteristicas;
     private Cliente cliente;
 
+    public Imovel(String descricao, String tipologia, String localizacao, String urlFoto, ImovelCarateristicas carateristicas) {
+        // Quando não existe cliente para o imóvel, mantê-lo nulo.
+        this(-1, descricao, tipologia, localizacao, urlFoto, carateristicas, null);
+    }
+
+    public Imovel(String descricao, String tipologia, String localizacao, String urlFoto, ImovelCarateristicas carateristicas, Cliente cliente) {
+        this(-1, descricao, tipologia, localizacao, urlFoto, carateristicas, cliente);
+    }
+
     public Imovel(int id, String descricao, String tipologia, String localizacao, String urlFoto, ImovelCarateristicas caracteristicas, Cliente cliente) {
         super(urlFoto);
         this.id = id;

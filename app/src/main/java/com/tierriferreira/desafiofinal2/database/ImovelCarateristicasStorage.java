@@ -36,7 +36,6 @@ public class ImovelCarateristicasStorage extends Storage<ImovelCarateristicas> {
         // Instanciar ContentValues.
         ContentValues values = new ContentValues();
         // Adicionar todos os dados que queremos que a base de dados guarde do modelo (todos).
-        values.put(FeedReaderContract.FeedEntry._ID, carateristicas.getId());
         values.put(FeedReaderContract.FeedEntry.COLUMN_SAUNA, carateristicas.hasSauna() ? 1 : 0);
         values.put(FeedReaderContract.FeedEntry.COLUMN_AREA_COMUM, carateristicas.hasAreaComum());
         // Deixar que a classe mãe faça o resto.
