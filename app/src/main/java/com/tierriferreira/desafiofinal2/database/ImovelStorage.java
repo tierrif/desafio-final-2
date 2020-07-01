@@ -79,4 +79,8 @@ public class ImovelStorage extends Storage<Imovel> {
     protected String getResponsibleTable() {
         return FeedReaderContract.FeedEntry.TABLE_IMOVEL;
     }
+
+    public ImovelCarateristicasStorage getImovelCaracteristicasStorage() {
+        return (ImovelCarateristicasStorage) imovelCStorage;
+    }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/imovelDescricao"
+        android:hint="@string/descricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/imovelTipologia"
+        android:hint="@string/tipologia"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/imovelLocalizacao"
+        android:hint="@string/localizacao"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/imovelUrlFoto"
+        android:hint="@string/urlFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--
+      https://developer.android.com/reference/android/widget/CheckBox
+      Como um input de tipo checkbox em HTML, mas nos layouts de android.
+      Para verificar se está selecionado ou não, usar isChecked() no Java.
+    -->
+    <CheckBox
+        android:id="@+id/sauna"
+        android:text="@string/sauna"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:id="@+id/areaComum"
+        android:text="@string/areaComum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/adicionarCliente"
+        android:text="@string/adicionarCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

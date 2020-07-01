@@ -17,6 +17,7 @@ public class AuthStorage extends Storage<AuthCredentials> {
 
     // Método adicional porque é a única tabela que busca entradas por outro atributo.
     public AuthCredentials retrieveByUsername(String username) {
+        if (username == null) return null;
         // Como vamos ler, vamos usar a base de dados que pode ser lida.
         SQLiteDatabase db = getHelper().getReadableDatabase();
         // As colunas que vamos pedir na query.

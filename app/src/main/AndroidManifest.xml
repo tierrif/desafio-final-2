@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainMenuActivity" />
+        <activity android:name=".ClienteEditorActivity" />
         <service android:name="com.tierriferreira.desafiofinal2.requests.RequestService" />
     </application>
 

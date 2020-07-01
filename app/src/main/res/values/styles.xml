@@ -25,11 +25,24 @@
 
     <style name="InputText" parent="AppTheme">
         <item name="android:textSize">@dimen/mediumTextSize</item>
+        <item name="android:textColorHint">@color/textColorLighter</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">@dimen/defaultMargin</item>
     </style>
 
-    <dimen name="mediumTextSize">20sp</dimen>
+    <style name="EditorButton" parent="AppTheme">
+        <item name="android:layout_margin">@dimen/btn_margin</item>
+        <item name="android:textSize">@dimen/btnTxt</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/btn_height</item>
+    </style>
+
+    <style name="Title" parent="AppTheme">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/titleSize</item>
+        <item name="android:textColor">@color/colorBackground</item>
+    </style>
 </resources>

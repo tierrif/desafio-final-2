@@ -3,4 +3,21 @@
     <string name="welcome">Bem-vindo</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="novo">Novo</string>
+    <string name="sair">Sair</string>
+    <string name="delete">Eliminar</string>
+    <string name="save">Guardar alterações</string>
+    <string name="login">Login</string>
+    <string name="urlFoto">URL da foto</string>
+    <string name="idade">Idade</string>
+    <string name="nome">Nome</string>
+    <string name="editarCliente">Editar cliente</string>
+    <string name="descricao">Descrição</string>
+    <string name="tipologia">Tipologia</string>
+    <string name="localizacao">Localização</string>
+    <string name="sauna">Sauna</string>
+    <string name="areaComum">Área comum</string>
+    <string name="adicionarCliente">Adicionar cliente...</string>
+    <string name="rememberMe">Permanecer autenticado</string>
+    <string name="editarImovel">Editar imóvel</string>
 </resources>

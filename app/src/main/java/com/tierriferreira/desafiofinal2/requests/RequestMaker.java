@@ -1,16 +1,8 @@
 package com.tierriferreira.desafiofinal2.requests;
 
-import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.util.Log;
-
-import androidx.core.app.NotificationCompat;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,9 +10,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.tierriferreira.desafiofinal2.LoginActivity;
-import com.tierriferreira.desafiofinal2.MainMenuActivity;
-import com.tierriferreira.desafiofinal2.R;
 import com.tierriferreira.desafiofinal2.database.AuthStorage;
 import com.tierriferreira.desafiofinal2.database.Storage;
 import com.tierriferreira.desafiofinal2.models.AuthCredentials;
@@ -34,7 +23,6 @@ import org.json.JSONObject;
 
 public class RequestMaker implements Response.Listener<JSONObject>, Response.ErrorListener {
     private static final String URL = "https://www.dropbox.com/s/brj3s1aenj07icm/desafio.json?dl=1";
-    public static final String PACKAGE = "com.tierriferreira.desafiofinal2.success";
     private static final String TAG = "RequestMaker";
 
     private Context context;
@@ -72,6 +60,8 @@ public class RequestMaker implements Response.Listener<JSONObject>, Response.Err
 
     @Override
     public void onResponse(JSONObject response) {
+        // Será false se forem encontrados dados de utilizador do json externo já existentes.
+        boolean first = true;
         try {
             // Contas de autenticação login.
             JSONArray accounts = response.getJSONArray("users");
@@ -79,9 +69,26 @@ public class RequestMaker implements Response.Listener<JSONObject>, Response.Err
                 JSONObject obj = accounts.getJSONObject(i);
                 String usr = obj.getString("user");
                 // Se já existir, não criar outra vez.
-                if (auth.retrieveByUsername(usr) != null) break;
+                if (auth.retrieveByUsername(usr) != null) {
+                    first = false;
+                    break;
+                }
                 auth.put(new AuthCredentials(usr, obj.getString("password"), false));
             }
+
+            /*
+             * Através de credenciais, conseguimos saber se os dados já foram buscados ou não.
+             * É impossível criar contas fora da conta super administradora, assim como é impossível
+             * fazê-lo antes que os dados cheguem (a não ser que haja erro ao receber dados no pedido).
+             * De qualquer forma, os nomes de utilizadores são únicos, por isso não existe conflito possível.
+             * As credenciais chegam no mesmo JSON que o resto dos dados, por isso simplesmente sabemos que
+             * os dados já existem na base de dados.
+             * Seria incorreto verificar se os dados existem na BD porque não recebemos chaves do JSON, apenas
+             * dados que podem ser repetidos em entradas futuras.
+             * Desta forma, mesmo que não seja a mais correta (a mais correta seria através de controlo de versões),
+             * é a única forma de não repetir dados sempre que abrimos a aplicação.
+             */
+            if (!first) return;
 
             // Clientes.
             JSONObject clientesObj = response.getJSONObject("clientes");
@@ -128,20 +135,6 @@ public class RequestMaker implements Response.Listener<JSONObject>, Response.Err
             return;
         }
 
-        // Gerar notificação.
-        NotificationManager manager = (NotificationManager) context.getSystemService(Activity.NOTIFICATION_SERVICE);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle("Pedido completo.")
-                .setContentText("Os dados da aplicação foram pedidos com sucesso.")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        NotificationCompat.InboxStyle style = new NotificationCompat.InboxStyle();
-        style.addLine("Sucesso");
-        builder.setStyle(style);
-        Notification notif = builder.build();
-        notif.vibrate = new long[]{150, 300, 150, 60};
-        notif.flags = Notification.FLAG_AUTO_CANCEL;
-        manager.notify(R.drawable.ic_launcher_background, notif);
-        Log.e("Reached", "Reached");
+        Toast.makeText(context, "Dados recebidos.", Toast.LENGTH_SHORT).show();
     }
 }

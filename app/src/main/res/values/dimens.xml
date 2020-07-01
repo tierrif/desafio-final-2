@@ -3,4 +3,10 @@
     <dimen name="mainTitleSize">50sp</dimen>
     <dimen name="mainTitleMargin">150dp</dimen>
     <dimen name="defaultMargin">5dp</dimen>
+    <dimen name="btn_height">100dp</dimen>
+    <dimen name="btn_margin">2dp</dimen>
+    <dimen name="btnTxt">18sp</dimen>
+    <dimen name="mediumTextSize">20sp</dimen>
+    <dimen name="titleSize">30sp</dimen>
+    <dimen name="spacing">40dp</dimen>
 </resources>
