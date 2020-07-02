@@ -6,6 +6,10 @@ public class AuthCredentials {
     // Super admin permite manusear utilizadores.
     private boolean superAdmin;
 
+    public AuthCredentials() {
+        this(-1, null, null, false);
+    }
+
     public AuthCredentials(String username, String password, boolean superAdmin) {
         this(-1, username, password, superAdmin);
     }

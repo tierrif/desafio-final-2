@@ -1,5 +1,6 @@
 package com.tierriferreira.desafiofinal2;
 
+import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,10 +18,10 @@ public class ClienteEditorActivity extends EditorActivity {
         nome = (EditText) findViewById(R.id.clienteNome);
         idade = (EditText) findViewById(R.id.clienteIdade);
         urlFoto = (EditText) findViewById(R.id.clienteUrlFoto);
-        // Quando pos é -1, estamos a criar.
-        if (pos == -1) return;
         DatabaseHelper helper = new DatabaseHelper(this);
         storage = new ClienteStorage(helper);
+        // Quando pos é -1, estamos a criar.
+        if (pos == -1) return;
         Cliente cliente = storage.retrieveAll().get(pos);
         nome.setText(cliente.getNome());
         // Se for -1, não existe, por isso não setar. Tipos primitivos não podem ser nulos.
@@ -49,8 +50,10 @@ public class ClienteEditorActivity extends EditorActivity {
             Toast.makeText(this, "Idade inválida", Toast.LENGTH_SHORT).show();
         }
 
+        Cliente cliente;
         // Obter cliente pelo índice para sabermos o ID, assim como setar novas informações.
-        Cliente cliente = storage.retrieveAll().get(pos);
+        if (pos != -1) cliente = storage.retrieveAll().get(pos);
+        else cliente = new Cliente(); // Se estivermos a criar
         cliente.setNome(nome.getText().toString());
         cliente.setIdade(age);
         cliente.setUrlFoto(urlFoto.getText().toString());
@@ -60,6 +63,13 @@ public class ClienteEditorActivity extends EditorActivity {
             if (pos == -1) storage.put(cliente);
             else storage.update(cliente, cliente.getId());
         }
+
+        // Para atualizar o recycler view, temos que chamar o onCreate outra vez, por isso não é possível aproveitar o ciclo de vida.
+        Intent intent = new Intent(this, ClienteActivity.class);
+        startActivity(intent);
+        // Terminar a atividade de edição.
+        finish();
+        // Return não necessário, estamos no fim do método.
     }
 
     @Override

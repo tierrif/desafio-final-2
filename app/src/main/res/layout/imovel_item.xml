@@ -15,8 +15,9 @@
                 android:id="@+id/fotoView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_marginRight="@dimen/imgMargin"
+                android:layout_width="@dimen/img"
+                android:layout_height="@dimen/img" />
             <TextView
                 android:id="@+id/imovelDescricaoView"
                 android:layout_toRightOf="@+id/fotoView"
@@ -33,6 +34,52 @@
                 android:id="@+id/imovelLocalizacaoView"
                 android:layout_toRightOf="@+id/fotoView"
                 android:layout_below="@+id/imovelTipologiaView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/saunaTitle"
+                android:layout_toRightOf="@+id/fotoView"
+                android:text="@string/temSauna"
+                android:layout_below="@+id/imovelLocalizacaoView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/saunaValue"
+                android:layout_toRightOf="@+id/saunaTitle"
+                android:layout_below="@+id/imovelLocalizacaoView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/areaComumTitle"
+                android:layout_toRightOf="@+id/fotoView"
+                android:text="@string/temAreaComum"
+                android:layout_below="@+id/saunaTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/areaComumValue"
+                android:layout_toRightOf="@+id/areaComumTitle"
+                android:text="@string/temAreaComum"
+                android:layout_below="@+id/saunaTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/vendidoTitle"
+                android:layout_toRightOf="@+id/fotoView"
+                android:text="@string/vendido"
+                android:layout_below="@+id/areaComumTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/vendidoValue"
+                android:layout_toRightOf="@+id/vendidoTitle"
+                android:text="@string/nao"
+                android:layout_below="@+id/areaComumTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>

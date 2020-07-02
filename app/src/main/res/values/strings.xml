@@ -20,4 +20,14 @@
     <string name="adicionarCliente">Adicionar cliente...</string>
     <string name="rememberMe">Permanecer autenticado</string>
     <string name="editarImovel">Editar imóvel</string>
+    <string name="menuPrincipal">Menu principal</string>
+    <string name="menuPrincipalAdmin">Menu principal (Admin)</string>
+    <string name="registarContas">Manusear contas</string>
+    <string name="clientes">Clientes</string>
+    <string name="imoveis">Imóveis</string>
+    <string name="repor">Repor dados</string>
+    <string name="temSauna">"Tem sauna: "</string>
+    <string name="temAreaComum">"Tem área comum: "</string>
+    <string name="nao">não</string>
+    <string name="vendido">"Vendido: "</string>
 </resources>

@@ -28,13 +28,15 @@ public class RequestMaker implements Response.Listener<JSONObject>, Response.Err
     private Context context;
     private Storage<Cliente> cStorage;
     private Storage<Imovel> iStorage;
+    private Storage<ImovelCarateristicas> icStorage;
     private AuthStorage auth;
 
     // AuthStorage, apesar de extender Storage<T>, tem um método próprio, por isso não pode ser generalizado.
-    public RequestMaker(Context context, Storage<Cliente> cStorage, Storage<Imovel> iStorage, AuthStorage auth) {
+    public RequestMaker(Context context, Storage<Cliente> cStorage, Storage<Imovel> iStorage, Storage<ImovelCarateristicas> icStorage, AuthStorage auth) {
         this.context = context;
         this.cStorage = cStorage;
         this.iStorage = iStorage;
+        this.icStorage = icStorage;
         this.auth = auth;
     }
 
@@ -93,7 +95,7 @@ public class RequestMaker implements Response.Listener<JSONObject>, Response.Err
             // Clientes.
             JSONObject clientesObj = response.getJSONObject("clientes");
             JSONArray clientesArr = clientesObj.getJSONArray("cliente");
-            for (int i = 0; i < accounts.length(); i++) {
+            for (int i = 0; i < clientesArr.length(); i++) {
                 JSONObject obj = clientesArr.getJSONObject(i);
                 cStorage.put(new Cliente(
                         obj.getString("nome"),
@@ -118,17 +120,19 @@ public class RequestMaker implements Response.Listener<JSONObject>, Response.Err
                         if (cObj.has("area_comum"))
                             iC.setAreaComum(cObj.getString("area_comum").equals("sim"));
                     }
-
-                    iStorage.put(new Imovel(
-                            obj.getString("descricao"),
-                            obj.getString("tipologia"),
-                            obj.getString("localizacao"),
-                            obj.getString("url_foto"),
-                            iC,
-                            null // Nenhum imóvel tem cliente.
-                    ));
                 }
 
+                long id = icStorage.put(iC);
+                iC.setId(id);
+
+                iStorage.put(new Imovel(
+                        obj.getString("descricao"),
+                        obj.getString("tipologia"),
+                        obj.getString("localizacao"),
+                        obj.getString("url_foto"),
+                        iC,
+                        null // Nenhum imóvel tem cliente.
+                ));
             }
         } catch (JSONException e) {
             e.printStackTrace();

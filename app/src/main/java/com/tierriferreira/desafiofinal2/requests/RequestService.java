@@ -32,7 +32,7 @@ public class RequestService extends IntentService {
         // Tem o seu próprio método que vai ser utilizado, não pode ser generalizada.
         AuthStorage auth = new AuthStorage(helper);
         // Inicializar o gerenciador de pedidos Volley.
-        RequestMaker maker = new RequestMaker(this, cStorage, iStorage, auth);
+        RequestMaker maker = new RequestMaker(this, cStorage, iStorage, caracteristicas, auth);
         // Iniciar pedido.
         maker.createRequest();
     }

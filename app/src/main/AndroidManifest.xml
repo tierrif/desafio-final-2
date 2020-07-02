@@ -19,7 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainMenuActivity" />
+        <activity android:name=".ClienteActivity" />
         <activity android:name=".ClienteEditorActivity" />
+        <activity android:name=".ImovelActivity" />
+        <activity android:name=".ImovelEditorActivity" />
         <service android:name="com.tierriferreira.desafiofinal2.requests.RequestService" />
     </application>
 

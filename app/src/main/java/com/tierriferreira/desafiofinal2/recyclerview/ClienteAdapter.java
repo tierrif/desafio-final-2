@@ -11,10 +11,21 @@ import com.tierriferreira.desafiofinal2.requests.VolleySingleton;
 public class ClienteAdapter extends RecyclerAdapter {
     private Storage<Cliente> storage;
     private RecyclerActivity activity;
+    private int posImovel;
 
     public ClienteAdapter(Storage<Cliente> storage, RecyclerActivity activity) {
+        this(storage, activity, -1);
+    }
+
+    /*
+     * long posImovel - Passar quando estamos a usar o recycler dos clientes
+     * para selecionar um para um imóvel, que é chamado sempre que clicamos em
+     * "adicionar cliente" no editor de um imóvel.
+     */
+    public ClienteAdapter(Storage<Cliente> storage, RecyclerActivity activity, int posImovel) {
         this.storage = storage;
         this.activity = activity;
+        this.posImovel = posImovel;
     }
 
     @Override
@@ -36,7 +47,7 @@ public class ClienteAdapter extends RecyclerAdapter {
 
     @Override
     public RecyclerViewHolder getViewHolder(View view) {
-        return new ClienteViewHolder(view, activity);
+        return new ClienteViewHolder(view, activity, posImovel);
     }
 
     @Override

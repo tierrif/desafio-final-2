@@ -13,14 +13,12 @@
     <EditText
         android:id="@+id/imovelTipologia"
         android:hint="@string/tipologia"
-        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/imovelLocalizacao"
         android:hint="@string/localizacao"
-        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

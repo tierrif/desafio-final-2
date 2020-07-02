@@ -2,6 +2,7 @@ package com.tierriferreira.desafiofinal2.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.tierriferreira.desafiofinal2.models.Cliente;
 import com.tierriferreira.desafiofinal2.models.Imovel;
@@ -39,6 +40,7 @@ public class ImovelStorage extends Storage<Imovel> {
                     FeedReaderContract.FeedEntry.COLUMN_ID_CARACTERISTICAS));
             int idCliente = cursor.getInt(cursor.getColumnIndex(
                     FeedReaderContract.FeedEntry.COLUMN_ID_CLIENTE));
+            Log.e("ID", idCaracteristicas + "");
             items.add(new Imovel(id, descricao, tipologia, localizacao, urlFoto, imovelCStorage.retrieveById(idCaracteristicas), clienteStorage.retrieveById(idCliente))); // Adicionar à lista.
         }
         // Deixar que a classe mãe faça o resto.
@@ -55,6 +57,8 @@ public class ImovelStorage extends Storage<Imovel> {
         values.put(FeedReaderContract.FeedEntry.COLUMN_LOCALIZACAO, imovel.getLocalizacao());
         values.put(FeedReaderContract.FeedEntry.COLUMN_URL_FOTO, imovel.getUrlFoto());
         values.put(FeedReaderContract.FeedEntry.COLUMN_ID_CARACTERISTICAS, imovel.getCaracteristicas().getId());
+        if (imovel.getCliente() != null)
+            values.put(FeedReaderContract.FeedEntry.COLUMN_ID_CLIENTE, imovel.getCliente().getId());
         // No caso de o imóvel não ter cliente, usar -1 como ID de cliente não existente.
         if (imovel.getCliente() != null) values.put(FeedReaderContract.FeedEntry.COLUMN_ID_CLIENTE, imovel.getCliente().getId());
         else values.put(FeedReaderContract.FeedEntry.COLUMN_ID_CLIENTE, -1);
@@ -82,5 +86,9 @@ public class ImovelStorage extends Storage<Imovel> {
 
     public ImovelCarateristicasStorage getImovelCaracteristicasStorage() {
         return (ImovelCarateristicasStorage) imovelCStorage;
+    }
+
+    public ClienteStorage getClienteStorage() {
+        return (ClienteStorage) clienteStorage;
     }
 }

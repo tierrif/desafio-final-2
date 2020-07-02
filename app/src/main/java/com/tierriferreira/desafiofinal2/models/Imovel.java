@@ -1,10 +1,14 @@
 package com.tierriferreira.desafiofinal2.models;
 
 public class Imovel extends Generic {
-    private int id;
+    private long id;
     private String descricao, tipologia, localizacao;
     private ImovelCarateristicas caracteristicas;
     private Cliente cliente;
+
+    public Imovel() {
+        this(-1, null, null, null, null, null, null);
+    }
 
     public Imovel(String descricao, String tipologia, String localizacao, String urlFoto, ImovelCarateristicas carateristicas) {
         // Quando não existe cliente para o imóvel, mantê-lo nulo.
@@ -25,7 +29,7 @@ public class Imovel extends Generic {
         this.cliente = cliente;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

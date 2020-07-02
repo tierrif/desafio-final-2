@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Layout em comum entre a atividade principal admin/normal. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_weight="6"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btnClientes"
+        android:text="@string/clientes"
+        android:background="@color/grayDarker"
+        style="@style/MainButton" />
+
+    <Button
+        android:id="@+id/btnImoveis"
+        android:text="@string/imoveis"
+        android:background="@color/gray"
+        style="@style/MainButton" />
 
 </LinearLayout>

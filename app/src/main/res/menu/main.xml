@@ -3,4 +3,8 @@
     <item
         android:id="@+id/sair"
         android:title="@string/sair" />
+    <item
+        android:id="@+id/reset"
+        android:title="@string/repor"
+        />
 </menu>

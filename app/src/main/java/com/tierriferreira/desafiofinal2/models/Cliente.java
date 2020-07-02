@@ -1,21 +1,26 @@
 package com.tierriferreira.desafiofinal2.models;
 
 public class Cliente extends Generic {
-    private int id, idade;
+    private long id;
+    private int idade;
     private String nome;
+
+    public Cliente() {
+        this(-1, null, -1, null);
+    }
 
     public Cliente(String nome, int idade, String urlFoto) {
         this(-1, nome, idade, urlFoto);
     }
 
-    public Cliente(int id, String nome, int idade, String urlFoto) {
+    public Cliente(long id, String nome, int idade, String urlFoto) {
         super(urlFoto);
         this.id = id;
         this.nome = nome;
         this.idade = idade;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

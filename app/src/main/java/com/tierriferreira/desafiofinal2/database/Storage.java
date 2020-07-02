@@ -84,7 +84,7 @@ public abstract class Storage<T> {
     }
 
     // Enviar para a base de dados uma nova entrada, do tipo T (modelo que representa a tabela).
-    public void put(T t) {
+    public long put(T t) {
         // Vamos escrever na base de dados, por isso queremos chamar getWritableDatabase.
         SQLiteDatabase db = helper.getWritableDatabase();
         // Agora, vamos pedir à classe filho para passar o objeto para ContentValues.
@@ -92,11 +92,11 @@ public abstract class Storage<T> {
         /* Por fim, como criámos o nosso array associativo com o que queremos
            inserir na DB, vamos aplicá-lo na mesma.
          */
-        db.insert(getResponsibleTable(), null, values);
+        return db.insert(getResponsibleTable(), null, values);
     }
 
     // Eliminar uma entrada através do seu ID.
-    public void delete(int id) {
+    public void delete(long id) {
         // Vamos escrever na base de dados, por isso queremos chamar getWritableDatabase.
         SQLiteDatabase db = helper.getWritableDatabase();
         // Eliminar da base de dados.
@@ -114,7 +114,7 @@ public abstract class Storage<T> {
      * em comum; Neste caso, isto não acontece. Se isto acontecesse, a template desta classe seria
      * <T extends ClasseEmComum>, ClasseEmComum seria a classe que todos os modelos herdam.
      */
-    public void update(T newValues, int id) {
+    public void update(T newValues, long id) {
         // Vamos escrever na base de dados, por isso queremos chamar getWritableDatabase.
         SQLiteDatabase db = helper.getWritableDatabase();
         // Atualizar a DB com as novas informações.

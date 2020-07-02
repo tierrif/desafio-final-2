@@ -27,6 +27,9 @@ public class ImovelAdapter extends RecyclerAdapter {
         imovelViewHolder.getDescricaoView().setText(imovel.getDescricao());
         imovelViewHolder.getTipologiaView().setText(imovel.getTipologia());
         imovelViewHolder.getLocalizacaoView().setText(imovel.getLocalizacao());
+        imovelViewHolder.getSaunaValue().setText(imovel.getCaracteristicas().hasSauna() ? "sim" : "não");
+        imovelViewHolder.getAreaComumValue().setText(imovel.getCaracteristicas().hasAreaComum() ? "sim" : "não");
+        if (imovel.getCliente() != null) imovelViewHolder.getVendidoValue().setText("sim, a " + imovel.getCliente().getNome());
         imovelViewHolder.getFotoView().setImageUrl(imovel.getUrlFoto(), VolleySingleton.getInstance(activity).getImageLoader());
     }
 

@@ -1,7 +1,7 @@
 package com.tierriferreira.desafiofinal2.models;
 
 public class ImovelCarateristicas {
-    private int id;
+    private long id;
     private boolean sauna, areaComum;
 
     public ImovelCarateristicas() {
@@ -12,22 +12,22 @@ public class ImovelCarateristicas {
         this(-1, sauna, areaComum);
     }
 
-    public ImovelCarateristicas(int id) {
+    public ImovelCarateristicas(long id) {
         // Valores por defeito, chamando o próprio construtor.
         this(id, false, false);
     }
 
-    public ImovelCarateristicas(int id, boolean sauna, boolean areaComum) {
+    public ImovelCarateristicas(long id, boolean sauna, boolean areaComum) {
         this.id = id;
         this.sauna = sauna;
         this.areaComum = areaComum;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

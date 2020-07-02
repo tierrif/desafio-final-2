@@ -7,13 +7,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Versão da base de dados. Recomendada pela Google para iniciar em 1.
-    public static final int DATABASE_VERSION = 1; // Incrementa em cada alteração física na DB.
+    public static final int DATABASE_VERSION = 2; // Incrementa em cada alteração física na DB.
     public static final String DATABASE_NAME = "DesafioFinal2.db"; // Nome do ficheiro da DB.
 
     // Queries SQL ficam em constantes.
     // Criação das tabelas.
     public static final String SQL_CREATE_ENTRIES_CLIENTE =
-            "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_CLIENTE + " (" +
+            "CREATE TABLE IF NOT EXISTS " + FeedReaderContract.FeedEntry.TABLE_CLIENTE + " (" +
                     FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     FeedReaderContract.FeedEntry.COLUMN_NOME + " TEXT," +
                     FeedReaderContract.FeedEntry.COLUMN_IDADE + " INTEGER," +
@@ -24,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        e a chave estrangeira (não declarada por desempenho) vai para a tabela
        com a relação de muitos. */
     public static final String SQL_CREATE_ENTRIES_IMOVEL =
-            "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_IMOVEL + " (" +
+            "CREATE TABLE IF NOT EXISTS " + FeedReaderContract.FeedEntry.TABLE_IMOVEL + " (" +
                     FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     FeedReaderContract.FeedEntry.COLUMN_DESCRICAO + " TEXT," +
                     FeedReaderContract.FeedEntry.COLUMN_TIPOLOGIA + " TEXT," +
@@ -35,14 +35,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     ")";
 
     public static final String SQL_CREATE_ENTRIES_IMOVEL_CARACTERISTICAS =
-            "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_IMOVEL_CARACTERISTICAS + " (" +
+            "CREATE TABLE IF NOT EXISTS " + FeedReaderContract.FeedEntry.TABLE_IMOVEL_CARACTERISTICAS + " (" +
                     FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     FeedReaderContract.FeedEntry.COLUMN_SAUNA + " INTEGER(1)," +
                     FeedReaderContract.FeedEntry.COLUMN_AREA_COMUM + " INTEGER(1)" +
                     ")";
 
     public static final String SQL_CREATE_ENTRIES_AUTH =
-            "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_AUTH + " (" +
+            "CREATE TABLE IF NOT EXISTS " + FeedReaderContract.FeedEntry.TABLE_AUTH + " (" +
                     FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     FeedReaderContract.FeedEntry.COLUMN_SUPER_ADMIN + " INTEGER(1)," +
                     FeedReaderContract.FeedEntry.COLUMN_USERNAME + " TEXT," +
@@ -84,5 +84,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_ENTRIES_IMOVEL_CARACTERISTICAS);
         db.execSQL(SQL_DELETE_ENTRIES_AUTH);
         onCreate(db); // Reaproveitar o código e atualizar a BD.
+    }
+
+    public void reset() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(SQL_DELETE_ENTRIES_CLIENTE);
+        db.execSQL(SQL_DELETE_ENTRIES_IMOVEL);
+        db.execSQL(SQL_DELETE_ENTRIES_IMOVEL_CARACTERISTICAS);
+        db.execSQL(SQL_DELETE_ENTRIES_AUTH);
+
+        db.execSQL(SQL_CREATE_ENTRIES_CLIENTE);
+        db.execSQL(SQL_CREATE_ENTRIES_IMOVEL);
+        db.execSQL(SQL_CREATE_ENTRIES_IMOVEL_CARACTERISTICAS);
+        db.execSQL(SQL_CREATE_ENTRIES_AUTH);
     }
 }

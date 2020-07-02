@@ -3,10 +3,9 @@ package com.tierriferreira.desafiofinal2.requests;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 /*
- * Inicializa o serviço de criação de pedido.
+ * Inicializa o serviço de criação do pedido.
  */
 public class Receiver extends BroadcastReceiver {
     @Override
