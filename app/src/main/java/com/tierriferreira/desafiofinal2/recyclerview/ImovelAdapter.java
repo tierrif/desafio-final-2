@@ -5,7 +5,6 @@ import android.view.View;
 import com.tierriferreira.desafiofinal2.R;
 import com.tierriferreira.desafiofinal2.RecyclerActivity;
 import com.tierriferreira.desafiofinal2.database.Storage;
-import com.tierriferreira.desafiofinal2.models.Cliente;
 import com.tierriferreira.desafiofinal2.models.Imovel;
 import com.tierriferreira.desafiofinal2.requests.VolleySingleton;
 

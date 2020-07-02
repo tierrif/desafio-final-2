@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
-import com.tierriferreira.desafiofinal2.ClienteEditorActivity;
 import com.tierriferreira.desafiofinal2.ImovelEditorActivity;
 import com.tierriferreira.desafiofinal2.R;
 import com.tierriferreira.desafiofinal2.RecyclerActivity;

@@ -30,4 +30,5 @@
     <string name="temAreaComum">"Tem área comum: "</string>
     <string name="nao">não</string>
     <string name="vendido">"Vendido: "</string>
+    <string name="novaPassword">Nova password</string>
 </resources>

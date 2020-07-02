@@ -16,10 +16,8 @@ import android.widget.Toast;
 import com.tierriferreira.desafiofinal2.auth.AuthSingleton;
 import com.tierriferreira.desafiofinal2.database.AuthStorage;
 import com.tierriferreira.desafiofinal2.database.DatabaseHelper;
-import com.tierriferreira.desafiofinal2.database.Storage;
 import com.tierriferreira.desafiofinal2.models.AuthCredentials;
 import com.tierriferreira.desafiofinal2.requests.Receiver;
-import com.tierriferreira.desafiofinal2.requests.SuccessReceiver;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
     private static final String PACKAGE = "com.tierriferreira.desafiofinal2.receiver";

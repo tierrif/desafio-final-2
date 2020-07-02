@@ -6,11 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.tierriferreira.desafiofinal2.database.DatabaseHelper;
-
 public abstract class EditorActivity extends Activity implements View.OnClickListener {
     private Button save, delete;
-    private DatabaseHelper databaseHelper;
     private int pos;
 
     @Override

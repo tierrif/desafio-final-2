@@ -3,7 +3,6 @@ package com.tierriferreira.desafiofinal2.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.tierriferreira.desafiofinal2.models.AuthCredentials;
 

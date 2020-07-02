@@ -1,10 +1,7 @@
 package com.tierriferreira.desafiofinal2.requests;
 
 import android.app.IntentService;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.util.Log;
 
 import com.tierriferreira.desafiofinal2.database.AuthStorage;
 import com.tierriferreira.desafiofinal2.database.ClienteStorage;

@@ -7,11 +7,6 @@ import com.tierriferreira.desafiofinal2.recyclerview.RecyclerAdapter;
 
 public class ClienteActivity extends RecyclerActivity {
     @Override
-    public void onDetailsShown(boolean dualFrame, int i) {
-
-    }
-
-    @Override
     public RecyclerAdapter getAdapter() {
         /*
          * long posImovel - Passar quando estamos a usar o recycler dos clientes

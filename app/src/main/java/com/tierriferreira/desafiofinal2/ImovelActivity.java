@@ -8,7 +8,6 @@ import com.tierriferreira.desafiofinal2.database.Storage;
 import com.tierriferreira.desafiofinal2.models.Cliente;
 import com.tierriferreira.desafiofinal2.models.Imovel;
 import com.tierriferreira.desafiofinal2.models.ImovelCarateristicas;
-import com.tierriferreira.desafiofinal2.recyclerview.ClienteAdapter;
 import com.tierriferreira.desafiofinal2.recyclerview.ImovelAdapter;
 import com.tierriferreira.desafiofinal2.recyclerview.RecyclerAdapter;
 
