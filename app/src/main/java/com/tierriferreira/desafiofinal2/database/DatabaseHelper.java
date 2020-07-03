@@ -86,16 +86,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db); // Reaproveitar o código e atualizar a BD.
     }
 
+    // Eliminar todos os dados da base de dados.
     public void reset() {
+        // Vamos escrever na BD.
         SQLiteDatabase db = getWritableDatabase();
+        // Eliminar todas as tabelas.
         db.execSQL(SQL_DELETE_ENTRIES_CLIENTE);
         db.execSQL(SQL_DELETE_ENTRIES_IMOVEL);
         db.execSQL(SQL_DELETE_ENTRIES_IMOVEL_CARACTERISTICAS);
         db.execSQL(SQL_DELETE_ENTRIES_AUTH);
 
+        // Criá-las de novo.
         db.execSQL(SQL_CREATE_ENTRIES_CLIENTE);
         db.execSQL(SQL_CREATE_ENTRIES_IMOVEL);
         db.execSQL(SQL_CREATE_ENTRIES_IMOVEL_CARACTERISTICAS);
         db.execSQL(SQL_CREATE_ENTRIES_AUTH);
+
+        /*
+         * Não podemos chamar onUpgrade porque isto fará com que necessitemos
+         * de alterar a versão da base de dados.
+         */
     }
 }

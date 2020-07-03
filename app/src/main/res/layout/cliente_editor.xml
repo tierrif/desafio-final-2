@@ -5,22 +5,19 @@
     android:layout_height="wrap_content">
 
     <EditText
+        style="@style/EditorEditText"
         android:id="@+id/clienteNome"
-        android:hint="@string/nome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:hint="@string/nome" />
 
     <EditText
+        style="@style/EditorEditText"
         android:id="@+id/clienteIdade"
         android:hint="@string/idade"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:inputType="number" />
 
     <EditText
+        style="@style/EditorEditText"
         android:id="@+id/clienteUrlFoto"
-        android:hint="@string/urlFoto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:hint="@string/urlFoto" />
 
 </LinearLayout>

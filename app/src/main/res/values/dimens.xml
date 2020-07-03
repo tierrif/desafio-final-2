@@ -6,7 +6,7 @@
     <dimen name="btn_height">100dp</dimen>
     <dimen name="btn_height_taller">150dp</dimen>
     <dimen name="btn_margin">2dp</dimen>
-    <dimen name="btnTxt">18sp</dimen>
+    <dimen name="btnTxt">25sp</dimen>
     <dimen name="mediumTextSize">20sp</dimen>
     <dimen name="titleSize">30sp</dimen>
     <dimen name="spacing">40dp</dimen>
@@ -14,4 +14,5 @@
     <dimen name="btn_margin_higher">10dp</dimen>
     <dimen name="img">100dp</dimen>
     <dimen name="imgMargin">15dp</dimen>
+    <dimen name="btnTxtLarge">30sp</dimen>
 </resources>

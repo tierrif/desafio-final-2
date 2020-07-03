@@ -23,6 +23,7 @@
         <activity android:name=".ClienteEditorActivity" />
         <activity android:name=".ImovelActivity" />
         <activity android:name=".ImovelEditorActivity" />
+        <activity android:name=".CredentialsActivity" />
         <service android:name="com.tierriferreira.desafiofinal2.requests.RequestService" />
     </application>
 

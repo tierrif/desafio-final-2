@@ -57,7 +57,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             return;
         }
         // Se não existem credenciais ainda, criar o super administrador.
-        if (!AuthSingleton.getInstance().login("admin", "admin", storage))
+        if (storage.retrieveByUsername("admin") == null)
             storage.put(new AuthCredentials("admin", "admin", true));
     }
 

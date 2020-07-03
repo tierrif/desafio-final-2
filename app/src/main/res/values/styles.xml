@@ -56,5 +56,39 @@
         <item name="android:textColor">@color/textColor</item>
     </style>
 
-    <dimen name="btnTxtLarge">30sp</dimen>
+    <style name="Checkbox" parent="AppTheme">
+        <item name="android:layout_marginBottom">@dimen/spacing</item>
+        <item name="android:textColor">@color/textColorLighter</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ManageBtn" parent="AppTheme">
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/textColorLighter</item>
+        <item name="android:layout_margin">@dimen/btn_margin_higher</item>
+        <item name="android:background">@color/darkRed</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/zero</item>
+    </style>
+
+    <style name="ItemImage" parent="AppTheme">
+        <item name="android:layout_marginRight">@dimen/imgMargin</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_width">@dimen/img</item>
+        <item name="android:layout_height">@dimen/img</item>
+    </style>
+
+    <style name="ItemText" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="EditorEditText" parent="AppTheme">
+        <item name="android:textColor">@color/textColorLighter</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

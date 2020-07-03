@@ -21,27 +21,18 @@
         android:inputType="textPassword"
         android:layout_below="@+id/username" />
 
-    <!-- TODO: style -->
     <CheckBox
+        style="@style/Checkbox"
         android:id="@+id/rememberMe"
         android:text="@string/rememberMe"
-        android:textSize="@dimen/mediumTextSize"
-        android:textColor="@color/textColorLighter"
-        android:layout_marginBottom="@dimen/spacing"
-        android:layout_below="@id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_below="@id/password" />
 
     <!-- TODO: style -->
     <Button
+        style="@style/EditorButton"
         android:id="@+id/btnLogin"
-        android:textColor="@color/colorBackground"
-        android:textSize="@dimen/btnTxt"
         android:background="@color/textColor"
         android:text="@string/login"
-        android:layout_below="@id/rememberMe"
-        android:layout_margin="@dimen/defaultMargin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_below="@id/rememberMe" />
 
 </RelativeLayout>

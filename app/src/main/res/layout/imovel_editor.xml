@@ -5,28 +5,24 @@
     android:layout_height="wrap_content">
 
     <EditText
+        style="@style/EditorEditText"
         android:id="@+id/imovelDescricao"
-        android:hint="@string/descricao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:hint="@string/descricao" />
 
     <EditText
+        style="@style/EditorEditText"
         android:id="@+id/imovelTipologia"
-        android:hint="@string/tipologia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:hint="@string/tipologia" />
 
     <EditText
+        style="@style/EditorEditText"
         android:id="@+id/imovelLocalizacao"
-        android:hint="@string/localizacao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:hint="@string/localizacao" />
 
     <EditText
+        style="@style/EditorEditText"
         android:id="@+id/imovelUrlFoto"
-        android:hint="@string/urlFoto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:hint="@string/urlFoto" />
 
     <!--
       https://developer.android.com/reference/android/widget/CheckBox
@@ -34,16 +30,14 @@
       Para verificar se está selecionado ou não, usar isChecked() no Java.
     -->
     <CheckBox
+        style="@style/Checkbox"
         android:id="@+id/sauna"
-        android:text="@string/sauna"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="@string/sauna" />
 
     <CheckBox
+        style="@style/Checkbox"
         android:id="@+id/areaComum"
-        android:text="@string/areaComum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="@string/areaComum" />
 
     <Button
         android:id="@+id/adicionarCliente"
